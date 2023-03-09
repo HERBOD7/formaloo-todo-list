@@ -32,11 +32,4 @@ body {
   #root {
     height: 100vh;
   }
-
-  input:checked + div {  
-    @apply border-blue-500;  
-  }  
-  input:checked + div svg {  
-    @apply block;  
-  }
 }
