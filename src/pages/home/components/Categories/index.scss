@@ -1,0 +1,16 @@
+.Categories {
+    &__item {
+     &--Housework {
+        @apply bg-red-400;
+     }
+     &--Shopping {
+        @apply bg-blue-400;
+     }
+     &--Personal {
+        @apply bg-green-400;
+     }
+     &--Work {
+        @apply bg-yellow-400;
+     } 
+    }
+}
