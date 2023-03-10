@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { ReactComponent as DeleteIcon } from 'src/assets/delete.svg';
 import { ReactComponent as CheckIcon } from 'src/assets/check.svg';
+import { useTasks } from 'src/context/TaskProvider';
 import './index.scss';
 
 const Task = (props) => {
-  const { title, status, creationDate } = props;
+  const { id, category, title, status, creationDate } = props;
+  const { changeTaskStatus, deleteTask } = useTasks();
   const taskIsCompleted = status === 'Pending' ? false : true;
   const [isCompleted, setCompleted] = useState(taskIsCompleted);
   const completeTask = (e) => {
     setCompleted(e.target.checked);
+    changeTaskStatus(id, category);
   };
 
-  const deleteTask = (e) => {
-    console.log(e);
+  const removeTask = () => {
+    deleteTask(id, category);
   };
 
   return (
@@ -35,7 +38,7 @@ const Task = (props) => {
           <div className="mt-1 text-xs text-slate-500">{creationDate}</div>
         </div>
       </div>
-      <button>{isCompleted ? '' : <DeleteIcon onClick={deleteTask} />}</button>
+      <button>{isCompleted ? '' : <DeleteIcon onClick={removeTask} />}</button>
     </div>
   );
 };
