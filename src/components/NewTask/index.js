@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
+import { useTasks } from 'src/context/TaskProvider';
 import './index.scss';
 
 const NewTask = (props) => {
   const { category } = props;
   const [newTask, setNewTask] = useState('');
-  const addTask = (e) => {
-    console.log(e.target.value, category);
-    // trim value and check is not empty
-    setNewTask('');
+  const { addTask } = useTasks();
+  const addNewTask = (e) => {
+    const value = e.target.value.trim();
+    if (value) {
+      addTask(value, category);
+      setNewTask('');
+    }
   };
 
   const changeTaskTitle = (e) => {
     setNewTask(e.target.value);
+  };
+
+  const enterNewTask = (e) => {
+    if (e.key === 'Enter') {
+      addNewTask(e);
+    }
   };
 
   return (
@@ -24,7 +34,8 @@ const NewTask = (props) => {
         rows="1"
         value={newTask}
         onChange={changeTaskTitle}
-        onBlur={addTask}
+        onBlur={addNewTask}
+        onKeyDown={enterNewTask}
       ></textarea>
     </div>
   );
