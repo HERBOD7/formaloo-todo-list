@@ -1,48 +1,34 @@
 import React from 'react';
 import NewTask from 'src/components/NewTask';
 import Task from 'src/components/Task';
+import { useTasks } from 'src/context/TaskProvider';
 
 const Tasks = (props) => {
-  const { category } = props;
-  // static tasks
-  const tasks = [
-    {
-      title: 'Cleaning Desk',
-      status: 'Pending',
-      creationDate: '09/03/2023',
-      id: 1,
-    },
-    {
-      title: 'Cleaning Desk',
-      status: 'Done',
-      creationDate: '09/03/2023',
-      id: 2,
-    },
-    {
-      title: 'Cleaning Desk',
-      status: 'Pending',
-      creationDate: '09/03/2023',
-      id: 3,
-    },
-    {
-      title: 'Cleaning Desk',
-      status: 'Pending',
-      creationDate: '09/03/2023',
-      id: 4,
-    },
-  ];
+  const { category, showCompletedTask } = props;
+  const { tasks } = useTasks();
+  const categoryTasks = tasks[category];
 
   const TasksList = () => {
-    const tasksListItems = tasks.map((task) => {
-      return (
-        <li key={task.id}>
-          <Task
-            title={task.title}
-            status={task.status}
-            creationDate={task.creationDate}
-          />
-        </li>
-      );
+    // check categoryTasks is not empty
+    const tasksListItems = categoryTasks.map((task) => {
+      if (
+        task.status === 'Pending' ||
+        (showCompletedTask && task.status === 'Done')
+      ) {
+        return (
+          <li key={task.id}>
+            <Task
+              id={task.id}
+              category={category}
+              title={task.title}
+              status={task.status}
+              creationDate={task.creationDate}
+            />
+          </li>
+        );
+      } else {
+        return <></>;
+      }
     });
     return <>{tasksListItems}</>;
   };
