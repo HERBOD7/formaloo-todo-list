@@ -48,10 +48,9 @@ export default function TaskProvider({ children }) {
 
   const changeTaskStatus = (id, category, taskStatus) => {
     setTasks((prevTasks) => {
-      const updatedTasks = tasks[category].map((task) => {
-        const newStatus = task.status === 'Pending' ? 'Done' : 'Pending';
-        return task.id === id ? { ...task, status: newStatus } : task;
-      });
+      const updatedTasks = tasks[category].map((task) =>
+        task.id === id ? { ...task, status: taskStatus } : task
+      );
       return {
         ...prevTasks,
         [category]: updatedTasks,
