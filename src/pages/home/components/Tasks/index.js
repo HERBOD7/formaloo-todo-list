@@ -27,7 +27,7 @@ const Tasks = (props) => {
           </li>
         );
       } else {
-        return <></>;
+        return null;
       }
     });
     return <>{tasksListItems}</>;
