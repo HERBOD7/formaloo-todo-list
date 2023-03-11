@@ -10,8 +10,10 @@ const Task = (props) => {
   const taskIsCompleted = status === 'Pending' ? false : true;
   const [isCompleted, setCompleted] = useState(taskIsCompleted);
   const completeTask = (e) => {
-    setCompleted(e.target.checked);
-    changeTaskStatus(id, category);
+    if (!isCompleted) {
+      setCompleted(e.target.checked);
+      changeTaskStatus(id, category, 'Done');
+    }
   };
 
   const removeTask = () => {
