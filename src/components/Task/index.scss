@@ -1,3 +1,10 @@
+.Task {
+    &__title {
+        max-width: calc(65vw - 48px);
+        word-wrap: break-word;
+    }
+}
+
 input:checked + div {  
     @apply border-blue-500;  
 }  

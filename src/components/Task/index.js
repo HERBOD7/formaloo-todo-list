@@ -36,7 +36,7 @@ const Task = (props) => {
         </div>
 
         <div className="ml-2">
-          <p className="text-sm">{title}</p>
+          <p className="text-sm Task__title">{title}</p>
           <div className="mt-1 text-xs text-slate-500">{creationDate}</div>
         </div>
       </div>
