@@ -8,7 +8,6 @@ The To-do list web application allows you to add new tasks, complete those tasks
 - [Tech Stack](#tech-stack)
 - [Contributing](#contributing)
 - [Features](#features)
-- [Optimizations](#optimizations)
 
 ## Installation
 
