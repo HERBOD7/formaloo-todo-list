@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Todo List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The To-do list web application allows you to add new tasks, complete those tasks, remove pending tasks, and hide and show completed tasks.it's available [here](https://formaloo-todo-list.netlify.app/)
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Installation](#installation)
+- [Tech Stack](#tech-stack)
+- [Contributing](#contributing)
+- [Features](#features)
+- [Optimizations](#optimizations)
 
-### `yarn start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Run the command to install all dependencies:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+yarn install
+```
 
-### `yarn test`
+and run the below command to start the project on development mode:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+yarn start
+```
 
-### `yarn build`
+You can run the docker command on your machine if you have Docker installed:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+docker-compose up
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open [http://localhost:3000](http://localhost:3000) to view it in a browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The page will reload if you make edits.
+- You will also see any lint errors in the console.
 
-### `yarn eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Client:** React, Tailwind, Sass
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### structure:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+It has `FEATURE FOLDERS` structure (dividing a program's functions into independent parts) that allows it to:
 
-## Learn More
+- easy to follow and read code
+- easy to debug and there are fewer places where bugs appear
+- easy to refactor
+- easy to manage and maintain
+- etc ...
+  Each feature includes its own components, routes that are used in the page.
+  As a project layout, all pages render into the `DefaultLayout`.
+  The main components directory contains shared components that can be used throughout the project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### style:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The project used BEM methodology to organize and understand styles easier for specific styles.
 
-### Code Splitting
+#### git:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Feature Branch Workflow used to avoid breaking code in main branch and make possible to create pull request and discus about changes. regarding commit messages, I used the [commit linter](https://commitlint.js.org/#/) to help clarify them.
 
-### Analyzing the Bundle Size
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Light/dark mode toggle
+- Custom category
+- Tasks dependencies
+- Create a team and assign task to them
